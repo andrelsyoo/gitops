@@ -30,7 +30,7 @@ openshift:
 ## Custom resource configuration
 crds:
   # -- Install and upgrade CRDs
-  install: true
+  install: false
   # -- Keep CRDs on chart uninstall
   keep: true
   # -- Annotations to be added to all CRDs
@@ -171,7 +171,7 @@ configs:
   ## Ref: https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/argocd-cm.yaml
   cm:
     # -- Create the argocd-cm configmap for [declarative setup]
-    create: true
+    create: false
 
     # -- Annotations to be added to argocd-cm configmap
     annotations: {}
@@ -1099,7 +1099,7 @@ controller:
 ## Dex
 dex:
   # -- Enable dex
-  enabled: true
+  enabled: false
   # -- Dex name
   name: dex-server
 
@@ -1344,7 +1344,7 @@ dex:
 
   serviceAccount:
     # -- Create dex service account
-    create: true
+    create: false
     # -- Dex service account name
     name: argocd-dex-server
     # -- Annotations applied to created service account
@@ -1412,7 +1412,7 @@ dex:
 ## Redis
 redis:
   # -- Enable redis
-  enabled: true
+  enabled: false
   # -- Redis name
   name: redis
 
@@ -1763,7 +1763,7 @@ redis-ha:
   ## Enables a HA Proxy for better LoadBalancing / Sentinel Master support. Automatically proxies to Redis master.
   haproxy:
     # -- Enabled HAProxy LoadBalancing/Proxy
-    enabled: true
+    enabled: false
     # --  Custom labels for the haproxy pod. This is relevant for Argo CD CLI.
     labels:
       app.kubernetes.io/name: argocd-redis-ha-haproxy
@@ -1772,7 +1772,7 @@ redis-ha:
       repository: ecr-public.aws.com/docker/library/haproxy
     metrics:
       # -- HAProxy enable prometheus metric scraping
-      enabled: true
+      enabled: false
     # -- Whether the haproxy pods should be forced to run on separate nodes.
     hardAntiAffinity: true
     # -- Additional affinities to add to the haproxy pods.
